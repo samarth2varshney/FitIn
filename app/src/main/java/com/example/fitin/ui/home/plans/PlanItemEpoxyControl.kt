@@ -34,9 +34,9 @@ class PlanItemEpoxyControl: TypedEpoxyController<List<PlanItem>>() {
                 .error(R.drawable.ic_launcher_foreground)
                 .into(planImage)
 
-            planTitle.text = planName.toString()
+            planTitle.text = planName
             planDescription.text = planDescription.text.toString()
-            planSuscribers.text = suscribers.toString()
+            planSuscribers.text = suscribers
             planPrice.text = planPrice.text.toString()
 
 
