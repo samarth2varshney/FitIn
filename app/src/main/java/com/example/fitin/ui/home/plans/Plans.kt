@@ -6,26 +6,37 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.example.fitin.R
+import androidx.lifecycle.ViewModelProvider
+import com.example.fitin.databinding.FragmentPlansBinding
 
 class Plans : Fragment() {
 
-    companion object {
-        fun newInstance() = Plans()
-    }
+    private var _binding: FragmentPlansBinding? = null
 
-    private val viewModel: PlansViewModel by viewModels()
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-        // TODO: Use the ViewModel
-    }
+    private val binding get() = _binding!!
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        return inflater.inflate(R.layout.fragment_plans, container, false)
+
+        _binding = FragmentPlansBinding.inflate(inflater, container, false)
+        val root = binding.root
+
+        val PlanViewModel = ViewModelProvider(this)[PlansViewModel::class.java]
+
+        binding.apply {
+
+            val controller = PlanItemEpoxyControl()
+
+            epoxyRecyclerView.setController(controller)
+
+            PlanViewModel.planList.observe(viewLifecycleOwner){
+                controller.setData(it)
+            }
+
+        }
+
+        return root
     }
 }
