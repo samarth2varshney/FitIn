@@ -1,4 +1,4 @@
-package com.example.fitin.ui.feed
+package com.example.fitin.ui.home.feed
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -23,6 +23,18 @@ class Feed : Fragment() {
         val root = binding.root
 
         val feedViewModel = ViewModelProvider(this)[FeedViewModel::class.java]
+
+        binding.apply {
+
+            val controller = FeedItemEpoxyController()
+
+            epoxyRecyclerView.setController(controller)
+
+            feedViewModel.feedList.observe(viewLifecycleOwner){
+                controller.setData(it)
+            }
+
+        }
 
         return root
     }

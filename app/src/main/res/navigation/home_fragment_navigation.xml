@@ -2,8 +2,8 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/navigation_home">
+    android:id="@+id/home_fragment_navigation"
+    app:startDestination="@id/navigation_feed">
 
     <fragment
         android:id="@+id/navigation_home"
@@ -13,39 +13,28 @@
 
         <action
             android:id="@+id/action_navigation_home_to_plans"
-            app:destination="@id/plans" />
+            app:destination="@id/navigation_plans" />
         <action
             android:id="@+id/action_navigation_home_to_rankings"
-            app:destination="@id/rankings" />
+            app:destination="@id/navigation_rankings" />
         <action
             android:id="@+id/action_navigation_home_to_feed"
-            app:destination="@id/feed" />
+            app:destination="@id/navigation_feed" />
     </fragment>
 
     <fragment
-        android:id="@+id/navigation_search"
-        android:name="com.example.fitin.ui.dashboard.DashboardFragment"
-        android:label="@string/title_search"
-        tools:layout="@layout/fragment_dashboard" />
-
-    <fragment
-        android:id="@+id/navigation_profile"
-        android:name="com.example.fitin.ui.notifications.NotificationsFragment"
-        android:label="@string/title_profile"
-        tools:layout="@layout/fragment_notifications" />
-    <fragment
-        android:id="@+id/feed"
+        android:id="@+id/navigation_feed"
         android:name="com.example.fitin.ui.home.feed.Feed"
         android:label="fragment_feed"
         tools:layout="@layout/fragment_feed" />
     <fragment
-        android:id="@+id/rankings"
-        android:name="com.example.fitin.ui.home.rankings.Rankings"
-        android:label="fragment_rankings"
-        tools:layout="@layout/fragment_rankings" />
-    <fragment
-        android:id="@+id/plans"
+        android:id="@+id/navigation_plans"
         android:name="com.example.fitin.ui.home.plans.Plans"
         android:label="fragment_plans"
         tools:layout="@layout/fragment_plans" />
+    <fragment
+        android:id="@+id/navigation_rankings"
+        android:name="com.example.fitin.ui.home.rankings.Rankings"
+        android:label="fragment_rankings"
+        tools:layout="@layout/fragment_rankings" />
 </navigation>
