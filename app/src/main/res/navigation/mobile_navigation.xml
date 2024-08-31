@@ -22,4 +22,22 @@
         android:name="com.example.fitin.ui.notifications.NotificationsFragment"
         android:label="@string/title_profile"
         tools:layout="@layout/fragment_notifications" />
+
+    <fragment
+        android:id="@+id/navigation_feed"
+        android:name="com.example.fitin.ui.home.feed.Feed"
+        android:label="Feed"
+        tools:layout="@layout/fragment_feed" />
+
+    <fragment
+        android:id="@+id/navigation_plans"
+        android:name="com.example.fitin.ui.home.plans.plansFragment"
+        android:label="@string/title_plan"
+        tools:layout="@layout/fragment_plans" />
+
+    <fragment
+        android:id="@+id/navigation_ranking"
+        android:name="com.example.fitin.ui.home.rankings.rankingsFragment"
+        android:label="@string/title_ranking"
+        tools:layout="@layout/fragment_rankings" />
 </navigation>

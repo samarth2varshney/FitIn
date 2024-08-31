@@ -1,4 +1,4 @@
-package com.example.fitin.ui.feed
+package com.example.fitin.ui.home.feed
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

@@ -1,4 +1,4 @@
-package com.example.fitin.ui.feed
+package com.example.fitin.ui.home.feed
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
