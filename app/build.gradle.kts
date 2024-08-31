@@ -57,5 +57,11 @@ dependencies {
     // Library for Data Scrolling
     implementation ("com.airbnb.android:epoxy:4.6.3")
 
+    //image loading library
+    implementation ("com.github.bumptech.glide:glide:4.16.0")
+
+    //circle image
+    implementation ("de.hdodenhof:circleimageview:3.1.0")
+
     
 }
