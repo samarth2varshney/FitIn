@@ -17,17 +17,14 @@
         app:itemBackground="@drawable/custom_nav_item_border"
         app:menu="@menu/home_app_bar_menu"  />
 
-    <androidx.fragment.app.FragmentContainerView
-        android:id="@+id/fragmentContainerView"
-        android:name="androidx.navigation.fragment.NavHostFragment"
-        app:defaultNavHost="true"
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/viewPager"
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        app:layout_constraintTop_toBottomOf="@id/topAppBar"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/topAppBar"
-        app:navGraph="@navigation/home_fragment_navigation"/>
+        app:layout_constraintEnd_toEndOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

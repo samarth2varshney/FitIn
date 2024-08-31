@@ -1,7 +1,6 @@
 package com.example.fitin.ui.home
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.Menu
 import android.view.MenuInflater
@@ -9,15 +8,13 @@ import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
+import androidx.viewpager2.widget.ViewPager2
 import com.example.fitin.R
 import com.example.fitin.databinding.FragmentHomeBinding
-import androidx.navigation.fragment.findNavController
 
 class HomeFragment : Fragment() {
 
     private var _binding: FragmentHomeBinding? = null
-
     private val binding get() = _binding!!
 
     override fun onCreateView(
@@ -25,16 +22,38 @@ class HomeFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val homeViewModel =
-            ViewModelProvider(this)[HomeViewModel::class.java]
-
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
         setHasOptionsMenu(true)
 
-        findNavController().navigate(R.id.action_navigation_home_to_rankings)
+        val viewPager = binding.viewPager
+        val bottomNavigationView = binding.topAppBar
 
+        // Set up the ViewPager with the HomePagerAdapter
+        viewPager.adapter = HomePagerAdapter(this)
+
+        // Listen for tab selection in BottomNavigationView and change ViewPager page
+        bottomNavigationView.setOnNavigationItemSelectedListener { item ->
+            when (item.itemId) {
+                R.id.navigation_feed -> viewPager.setCurrentItem(0, true)
+                R.id.navigation_rankings -> viewPager.setCurrentItem(1, true)
+                R.id.navigation_plans -> viewPager.setCurrentItem(2, true)
+            }
+            true
+        }
+
+        // Link ViewPager changes with BottomNavigationView
+        viewPager.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
+            override fun onPageSelected(position: Int) {
+                super.onPageSelected(position)
+                when (position) {
+                    0 -> bottomNavigationView.selectedItemId = R.id.navigation_feed
+                    1 -> bottomNavigationView.selectedItemId = R.id.navigation_rankings
+                    2 -> bottomNavigationView.selectedItemId = R.id.navigation_plans
+                }
+            }
+        })
 
         return root
     }
@@ -47,17 +66,15 @@ class HomeFragment : Fragment() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
             R.id.navigation_rankings -> {
-                Log.i("samarth","chala")
-                findNavController().navigate(R.id.action_navigation_home_to_rankings)
+                binding.viewPager.setCurrentItem(1, true)
                 true
             }
             R.id.navigation_feed -> {
-                findNavController().navigate(R.id.action_navigation_home_to_feed)
+                binding.viewPager.setCurrentItem(0, true)
                 true
             }
             R.id.navigation_plans -> {
-                Log.i("samarth","chala")
-                findNavController().navigate(R.id.action_navigation_home_to_plans)
+                binding.viewPager.setCurrentItem(2, true)
                 true
             }
             else -> super.onOptionsItemSelected(item)
