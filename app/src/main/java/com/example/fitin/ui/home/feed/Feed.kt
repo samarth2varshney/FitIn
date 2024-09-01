@@ -29,7 +29,9 @@ class Feed : Fragment() {
 
             val controller = FeedItemEpoxyController()
 
-            epoxyRecyclerView.setController(controller)
+            epoxyRecyclerView.post {
+                epoxyRecyclerView.setController(controller)
+            }
 
             feedViewModel.feedList.observe(viewLifecycleOwner){
                 controller.setData(it)
@@ -40,7 +42,7 @@ class Feed : Fragment() {
         return root
     }
 
-    fun getEpoxyRecyclerView(): EpoxyRecyclerView {
-        return binding.epoxyRecyclerView
+    fun getEpoxyRecyclerView(): EpoxyRecyclerView? {
+        return _binding?.epoxyRecyclerView
     }
 }

@@ -27,7 +27,9 @@ class Rankings : Fragment() {
 
             val controller = RankingEpoxyControl()
 
-            epoxyRecyclerView.setController(controller)
+            epoxyRecyclerView.post {
+                epoxyRecyclerView.setController(controller)
+            }
 
             rankingViewModel.rankingList.observe(viewLifecycleOwner){
                 controller.setData(it)
@@ -38,7 +40,7 @@ class Rankings : Fragment() {
         return root
     }
 
-    fun getEpoxyRecyclerView(): EpoxyRecyclerView {
-        return binding.epoxyRecyclerView
+    fun getEpoxyRecyclerView(): EpoxyRecyclerView? {
+        return _binding?.epoxyRecyclerView
     }
 }

@@ -30,7 +30,9 @@ class Plans : Fragment() {
 
             val controller = PlanItemEpoxyControl()
 
-            epoxyRecyclerView.setController(controller)
+            epoxyRecyclerView.post {
+                epoxyRecyclerView.setController(controller)
+            }
 
             PlanViewModel.planList.observe(viewLifecycleOwner){
                 controller.setData(it)
@@ -41,7 +43,7 @@ class Plans : Fragment() {
         return root
     }
 
-    fun getEpoxyRecyclerView(): EpoxyRecyclerView {
-        return binding.epoxyRecyclerView
+    fun getEpoxyRecyclerView(): EpoxyRecyclerView? {
+        return _binding?.epoxyRecyclerView
     }
 }
