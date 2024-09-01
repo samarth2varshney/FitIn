@@ -1,6 +1,8 @@
 package com.example.fitin.ui.home
 
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.view.LayoutInflater
 import android.view.Menu
 import android.view.MenuInflater
@@ -18,6 +20,8 @@ class HomeFragment : Fragment() {
     private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding!!
     private lateinit var homePagerAdapter: HomePagerAdapter
+    private var lastScrollTime: Long = 0
+    private val debounceDelay: Long = 150
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -56,6 +60,8 @@ class HomeFragment : Fragment() {
                     2 -> bottomNavigationView.selectedItemId = R.id.navigation_plans
                 }
 
+                showTopAppBar()
+
                 attachScrollListener(position)
             }
         })
@@ -68,12 +74,14 @@ class HomeFragment : Fragment() {
         epoxyRecyclerView?.addOnScrollListener(object : RecyclerView.OnScrollListener() {
             override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
                 super.onScrolled(recyclerView, dx, dy)
-                if (dy > 0) {
-                    // Scrolling down
-                    binding.topAppBar.visibility = View.GONE
-                } else if (dy < 0) {
-                    // Scrolling up
-                    binding.topAppBar.visibility = View.VISIBLE
+                val currentTime = System.currentTimeMillis()
+                if (currentTime - lastScrollTime > debounceDelay) {
+                    lastScrollTime = currentTime
+                    if (dy > 0) {
+                        hideTopAppBar()
+                    } else if (dy < 0) {
+                        showTopAppBar()
+                    }
                 }
             }
         })
@@ -100,6 +108,23 @@ class HomeFragment : Fragment() {
             }
             else -> super.onOptionsItemSelected(item)
         }
+    }
+
+    private fun hideTopAppBar() {
+        binding.topAppBar.animate()
+            .translationY(-(binding.topAppBar.height.toFloat() + 50))
+            .setDuration(200)
+            .withEndAction {
+                Handler(Looper.getMainLooper()).postDelayed({
+                    binding.topAppBar.visibility = View.GONE
+                }, 5)
+            }
+            .start()
+    }
+
+    private fun showTopAppBar() {
+        binding.topAppBar.animate().translationY(0f).setDuration(200).start()
+        binding.topAppBar.visibility = View.VISIBLE
     }
 
     override fun onDestroyView() {
