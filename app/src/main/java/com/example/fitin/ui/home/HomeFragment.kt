@@ -8,6 +8,7 @@ import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.ViewPager2
 import com.example.fitin.R
 import com.example.fitin.databinding.FragmentHomeBinding
@@ -16,6 +17,7 @@ class HomeFragment : Fragment() {
 
     private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding!!
+    private lateinit var homePagerAdapter: HomePagerAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -28,10 +30,11 @@ class HomeFragment : Fragment() {
         setHasOptionsMenu(true)
 
         val viewPager = binding.viewPager
+        homePagerAdapter = HomePagerAdapter(this)
         val bottomNavigationView = binding.topAppBar
 
         // Set up the ViewPager with the HomePagerAdapter
-        viewPager.adapter = HomePagerAdapter(this)
+        viewPager.adapter = homePagerAdapter
 
         // Listen for tab selection in BottomNavigationView and change ViewPager page
         bottomNavigationView.setOnNavigationItemSelectedListener { item ->
@@ -52,10 +55,28 @@ class HomeFragment : Fragment() {
                     1 -> bottomNavigationView.selectedItemId = R.id.navigation_rankings
                     2 -> bottomNavigationView.selectedItemId = R.id.navigation_plans
                 }
+
+                attachScrollListener(position)
             }
         })
 
         return root
+    }
+
+    private fun attachScrollListener(position: Int) {
+        val epoxyRecyclerView = homePagerAdapter.getEpoxyRecyclerView(position)
+        epoxyRecyclerView?.addOnScrollListener(object : RecyclerView.OnScrollListener() {
+            override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
+                super.onScrolled(recyclerView, dx, dy)
+                if (dy > 0) {
+                    // Scrolling down
+                    binding.topAppBar.visibility = View.GONE
+                } else if (dy < 0) {
+                    // Scrolling up
+                    binding.topAppBar.visibility = View.VISIBLE
+                }
+            }
+        })
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {

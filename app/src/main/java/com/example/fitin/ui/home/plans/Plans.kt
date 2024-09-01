@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
+import com.airbnb.epoxy.EpoxyRecyclerView
 import com.example.fitin.databinding.FragmentPlansBinding
 
 class Plans : Fragment() {
@@ -38,5 +39,9 @@ class Plans : Fragment() {
         }
 
         return root
+    }
+
+    fun getEpoxyRecyclerView(): EpoxyRecyclerView {
+        return binding.epoxyRecyclerView
     }
 }
