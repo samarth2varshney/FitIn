@@ -6,5 +6,6 @@ data class PlanItem (
     val planDescription: String,
     val imageUrl: String,
     val suscribersNo: String,
-    val planPrice: String
+    val planPrice: String,
+    val isBookMarked: Boolean
 )

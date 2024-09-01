@@ -14,7 +14,7 @@ class PlanItemEpoxyControl: TypedEpoxyController<List<PlanItem>>() {
             return
         }
         data.forEach{ PlanItem ->
-            PlanEpoxyModel(PlanItem.planName,PlanItem.planDescription,PlanItem.imageUrl,PlanItem.suscribersNo, PlanItem.planPrice).id(PlanItem.id).addTo(this)
+            PlanEpoxyModel(PlanItem.planName,PlanItem.planDescription,PlanItem.imageUrl,PlanItem.suscribersNo, PlanItem.planPrice, PlanItem.isBookMarked).id(PlanItem.id).addTo(this)
         }
     }
 
@@ -23,7 +23,8 @@ class PlanItemEpoxyControl: TypedEpoxyController<List<PlanItem>>() {
         val planDescription:String,
         val imageUrl:String,
         val suscribers:String,
-        val planPrice: String
+        val planPrice: String,
+        var isBookMarked: Boolean
     ): ViewBindingKotlinModel<ItemInfluencerPlanBinding>(R.layout.item_influencer_plan) {
 
         override fun ItemInfluencerPlanBinding.bind() {
@@ -39,8 +40,15 @@ class PlanItemEpoxyControl: TypedEpoxyController<List<PlanItem>>() {
             planSuscribers.text = suscribers
             planPrice.text = planPrice.text.toString()
 
-
-
+            imageBookmark.setOnClickListener {
+                if(isBookMarked){
+                    imageBookmark.setImageResource(R.drawable.ic_save)
+                    isBookMarked = false
+                } else {
+                    imageBookmark.setImageResource(R.drawable.ic_save_black)
+                    isBookMarked = true
+                }
+            }
         }
 
     }

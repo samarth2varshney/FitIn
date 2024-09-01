@@ -1,31 +1,39 @@
 package com.example.fitin.ui.home.rankings
 
-import androidx.fragment.app.viewModels
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.example.fitin.R
+import androidx.lifecycle.ViewModelProvider
+import com.example.fitin.databinding.FragmentRankingsBinding
 
 class Rankings : Fragment() {
 
-    companion object {
-        fun newInstance() = Rankings()
-    }
-
-    private val viewModel: RankingsViewModel by viewModels()
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-        // TODO: Use the ViewModel
-    }
+    private var _binding: FragmentRankingsBinding? = null
+    private val binding get() = _binding!!
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        return inflater.inflate(R.layout.fragment_rankings, container, false)
+        _binding = FragmentRankingsBinding.inflate(inflater,container,false)
+        val root = binding.root
+
+        val rankingViewModel = ViewModelProvider(this)[RankingsViewModel::class.java]
+
+        binding.apply {
+
+            val controller = RankingEpoxyControl()
+
+            epoxyRecyclerView.setController(controller)
+
+            rankingViewModel.rankingList.observe(viewLifecycleOwner){
+                controller.setData(it)
+            }
+
+        }
+
+        return root
     }
 }

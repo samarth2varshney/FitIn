@@ -14,6 +14,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_margin="14dp"
+        app:itemIconSize="25dp"
         app:itemBackground="@drawable/custom_nav_item_border"
         app:menu="@menu/home_app_bar_menu"  />
 

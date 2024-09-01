@@ -3,16 +3,16 @@
     <item
         android:id="@+id/navigation_feed"
         android:title="@string/title_home"
-        android:icon="@drawable/baseline_play_circle_filled_24"
+        android:icon="@drawable/feeds_icon"
         />
 
     <item
         android:id="@+id/navigation_rankings"
         android:title="@string/title_ranking"
-        android:icon="@drawable/baseline_search_24"/>
+        android:icon="@drawable/ranking"/>
 
     <item
         android:id="@+id/navigation_plans"
         android:title="@string/title_plan"
-        android:icon="@drawable/baseline_person_24"/>
+        android:icon="@drawable/dumbbell"/>
 </menu>
