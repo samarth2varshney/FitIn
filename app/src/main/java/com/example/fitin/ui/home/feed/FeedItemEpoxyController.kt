@@ -1,6 +1,5 @@
 package com.example.fitin.ui.home.feed
 
-import android.util.Log
 import com.airbnb.epoxy.TypedEpoxyController
 import com.bumptech.glide.Glide
 import com.example.fitin.R

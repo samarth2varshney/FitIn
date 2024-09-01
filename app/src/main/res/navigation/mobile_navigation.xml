@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/navigation_home">
+    app:startDestination="@+id/login">
 
     <fragment
         android:id="@+id/navigation_home"
@@ -48,4 +48,28 @@
         android:name="com.example.fitin.ui.home.plans.Plans"
         android:label="fragment_plans"
         tools:layout="@layout/fragment_plans" />
+    <fragment
+        android:id="@+id/login"
+        android:name="com.example.fitin.ui.login.Login"
+        android:label="fragment_login"
+        tools:layout="@layout/fragment_login" >
+        <action
+            android:id="@+id/action_login_to_navigation_home"
+            app:destination="@id/navigation_home" />
+        <action
+            android:id="@+id/action_login_to_register"
+            app:destination="@id/register" />
+    </fragment>
+    <fragment
+        android:id="@+id/register"
+        android:name="com.example.fitin.ui.register.Register"
+        android:label="fragment_register"
+        tools:layout="@layout/fragment_register" >
+        <action
+            android:id="@+id/action_register_to_login"
+            app:destination="@id/login" />
+        <action
+            android:id="@+id/action_register_to_navigation_home"
+            app:destination="@id/navigation_home" />
+    </fragment>
 </navigation>

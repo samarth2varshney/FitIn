@@ -75,14 +75,8 @@ class HomeFragment : Fragment() {
     }
 
     private fun attachScrollListener(position: Int) {
-        val epoxyRecyclerView = homePagerAdapter.getEpoxyRecyclerView(position, this)
 
-        if (epoxyRecyclerView == null) {
-            binding.viewPager.postDelayed({
-                attachScrollListener(position)
-            }, 100)
-            return
-        }
+        val epoxyRecyclerView = homePagerAdapter.getEpoxyRecyclerView(position, this)
 
         epoxyRecyclerView?.addOnScrollListener(object : RecyclerView.OnScrollListener() {
             override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
