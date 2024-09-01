@@ -17,15 +17,24 @@ class HomePagerAdapter(fragment: Fragment) : FragmentStateAdapter(fragment) {
     override fun getItemCount(): Int = fragments.size
 
     override fun createFragment(position: Int): Fragment {
-        return fragments[position]
+        return when (position) {
+            0 -> Feed()
+            1 -> Rankings()
+            2 -> Plans()
+            else -> throw IllegalArgumentException("Invalid position")
+        }
     }
 
-    fun getEpoxyRecyclerView(position: Int): EpoxyRecyclerView? {
-        return when (position) {
-            0 -> (fragments[0] as Feed).getEpoxyRecyclerView()
-            1 -> (fragments[1] as Rankings).getEpoxyRecyclerView()
-            2 -> (fragments[2] as Plans).getEpoxyRecyclerView()
-            else -> null
+    fun getEpoxyRecyclerView(position: Int, fragments: Fragment): EpoxyRecyclerView? {
+        val fragment = fragments.childFragmentManager.findFragmentByTag("f$position")
+        return if (fragment is Feed) {
+            fragment.getEpoxyRecyclerView()
+        } else if (fragment is Rankings) {
+            fragment.getEpoxyRecyclerView()
+        } else if (fragment is Plans) {
+            fragment.getEpoxyRecyclerView()
+        } else {
+            null
         }
     }
 }
