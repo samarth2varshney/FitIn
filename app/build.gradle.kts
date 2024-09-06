@@ -127,5 +127,13 @@ dependencies {
     //circle image
     implementation ("de.hdodenhof:circleimageview:3.1.0")
 
+    implementation ("com.google.android.exoplayer:exoplayer:2.18.1")
+
+    implementation ("com.google.android.exoplayer:exoplayer-core:2.18.1")
+
+    implementation ("com.google.android.exoplayer:exoplayer-smoothstreaming:2.18.1")
+
+    implementation ("com.google.android.exoplayer:exoplayer-ui:2.18.1")
+
     
 }
