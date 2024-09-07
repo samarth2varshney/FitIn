@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.viewpager2.widget.ViewPager2
 import com.example.fitin.databinding.FragmentProfileBinding
 
 class ProfileFragment : Fragment() {
@@ -22,16 +23,22 @@ class ProfileFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val profileViewModel =
-            ViewModelProvider(this).get(ProfileViewModel::class.java)
+        val profileViewModel = ViewModelProvider(this).get(ProfileViewModel::class.java)
 
         _binding = FragmentProfileBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        val textView: TextView = binding.textNotifications
-        profileViewModel.text.observe(viewLifecycleOwner) {
-            textView.text = it
+        val viewPager: ViewPager2 = binding.fragmentContainer
+        viewPager.adapter = ProfilePagerAdapter(this)
+
+        binding.iconPosts.setOnClickListener {
+            viewPager.setCurrentItem(0, true)
         }
+
+        binding.iconBookmarks.setOnClickListener {
+            viewPager.setCurrentItem(1, true)
+        }
+
         return root
     }
 
