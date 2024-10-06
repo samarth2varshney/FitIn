@@ -135,5 +135,12 @@ dependencies {
 
     implementation ("com.google.android.exoplayer:exoplayer-ui:2.18.1")
 
-    
+    implementation ("com.squareup.retrofit2:retrofit:2.9.0")
+
+    implementation ("com.squareup.retrofit2:retrofit:2.9.0")
+    implementation ("com.squareup.retrofit2:converter-name:2.9.0")
+
+    implementation ("com.squareup.retrofit2:retrofit:2.9.0")
+    implementation ("com.squareup.retrofit2:converter-gson:2.9.0")
+
 }

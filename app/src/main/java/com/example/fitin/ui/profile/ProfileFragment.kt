@@ -1,10 +1,10 @@
 package com.example.fitin.ui.profile
 
+import android.graphics.Color
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.viewpager2.widget.ViewPager2
@@ -31,6 +31,14 @@ class ProfileFragment : Fragment() {
         val viewPager: ViewPager2 = binding.fragmentContainer
         viewPager.adapter = ProfilePagerAdapter(this)
 
+        highlightIcon(0)
+
+        viewPager.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
+            override fun onPageSelected(position: Int) {
+                highlightIcon(position)
+            }
+        })
+
         binding.iconPosts.setOnClickListener {
             viewPager.setCurrentItem(0, true)
         }
@@ -40,6 +48,16 @@ class ProfileFragment : Fragment() {
         }
 
         return root
+    }
+
+    private fun highlightIcon(position: Int) {
+        binding.iconPosts.setColorFilter(Color.GRAY)
+        binding.iconBookmarks.setColorFilter(Color.GRAY)
+
+        when (position) {
+            0 -> binding.iconPosts.setColorFilter(Color.BLUE)
+            1 -> binding.iconBookmarks.setColorFilter(Color.BLUE)
+        }
     }
 
     override fun onDestroyView() {

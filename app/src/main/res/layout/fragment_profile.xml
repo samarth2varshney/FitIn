@@ -35,7 +35,6 @@
                 android:id="@+id/user_profile_image"
                 android:layout_width="60dp"
                 android:layout_height="60dp"
-                android:layout_gravity="center"
                 android:layout_marginTop="20dp"
                 android:background="@drawable/custom_user_profile_bg"
                 android:scaleType="centerCrop"
@@ -52,7 +51,71 @@
                 android:gravity="center"
                 android:text="NAME"
                 android:textStyle="bold"
-                app:layout_constraintTop_toBottomOf="@id/user_profile_image" />
+                app:layout_constraintBottom_toTopOf="@id/container_2"
+                app:layout_constraintTop_toBottomOf="@id/user_profile_image"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"/>
+
+           <LinearLayout
+               android:id="@+id/container_2"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:weightSum="2"
+               android:layout_marginTop="10dp"
+               android:gravity="center"
+               app:layout_constraintTop_toBottomOf="@id/user_profile_name"
+               app:layout_constraintStart_toStartOf="parent"
+               app:layout_constraintEnd_toEndOf="parent"
+               android:visibility="visible">
+
+               <LinearLayout
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:layout_gravity="center"
+                   android:layout_weight="0.2"
+                   android:weightSum="2">
+
+                   <TextView
+                       android:id="@+id/follow_button"
+                       android:layout_width="match_parent"
+                       android:layout_height="wrap_content"
+                       android:textStyle="bold"
+                       android:text="Following"
+                       android:textAllCaps="true"
+                       android:gravity="center"
+                       android:layout_margin="5dp"
+                       android:padding="5dp"
+                       android:textColor="@color/white"
+                       android:background="@drawable/custom_button_bg"
+                       android:visibility="visible"
+                       android:layout_weight="1"/>
+
+                   <TextView
+                       android:id="@+id/message_button"
+                       android:layout_width="match_parent"
+                       android:layout_height="wrap_content"
+                       android:textStyle="bold"
+                       android:text="Message"
+                       android:textAllCaps="true"
+                       android:gravity="center"
+                       android:layout_margin="5dp"
+                       android:padding="5dp"
+                       android:textColor="@color/white"
+                       android:background="@drawable/custom_button_bg"
+                       android:visibility="visible"
+                       android:layout_weight="1"/>
+
+               </LinearLayout>
+
+               <ImageView
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:src="@drawable/profile_share"
+                   android:layout_margin="5dp"
+                   android:gravity="center"
+                   android:layout_weight="1.8"/>
+
+           </LinearLayout>
 
             <LinearLayout
                 android:id="@+id/container_1"
@@ -63,7 +126,7 @@
                 android:weightSum="3"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/user_profile_name">
+                app:layout_constraintTop_toBottomOf="@id/container_2">
 
                 <LinearLayout
                     android:layout_width="wrap_content"

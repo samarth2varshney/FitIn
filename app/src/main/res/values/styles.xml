@@ -8,4 +8,13 @@
         <item name="android:layout_gravity">center_horizontal</item>
         <item name="android:gravity">center_horizontal</item>
     </style>
+
+    <resources>
+        <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+            <item name="android:statusBarColor">@color/black</item>
+            <item name="colorPrimary">@color/black</item>
+            <item name="colorPrimaryDark">@color/black</item>
+        </style>
+    </resources>
+
 </resources>
