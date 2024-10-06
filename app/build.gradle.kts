@@ -1,6 +1,8 @@
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
+    id("kotlin-kapt")
+    id("com.google.dagger.hilt.android")
 }
 
 android {
@@ -136,11 +138,16 @@ dependencies {
     implementation ("com.google.android.exoplayer:exoplayer-ui:2.18.1")
 
     implementation ("com.squareup.retrofit2:retrofit:2.9.0")
-
-    implementation ("com.squareup.retrofit2:retrofit:2.9.0")
-    implementation ("com.squareup.retrofit2:converter-name:2.9.0")
-
-    implementation ("com.squareup.retrofit2:retrofit:2.9.0")
     implementation ("com.squareup.retrofit2:converter-gson:2.9.0")
 
+    implementation("com.google.dagger:hilt-android:2.51.1")
+    kapt("com.google.dagger:hilt-android-compiler:2.51.1")
+
+    implementation ("com.squareup.retrofit2:converter-moshi:2.9.0")
+
+}
+
+// Allow references to generated code
+kapt {
+    correctErrorTypes = true
 }

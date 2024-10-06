@@ -50,7 +50,7 @@
         tools:layout="@layout/fragment_plans" />
     <fragment
         android:id="@+id/login"
-        android:name="com.example.fitin.ui.login.Login"
+        android:name="com.example.fitin.ui.login_register.Login"
         android:label="fragment_login"
         tools:layout="@layout/fragment_login" >
         <action
@@ -62,7 +62,7 @@
     </fragment>
     <fragment
         android:id="@+id/register"
-        android:name="com.example.fitin.ui.register.Register"
+        android:name="com.example.fitin.ui.login_register.Register"
         android:label="fragment_register"
         tools:layout="@layout/fragment_register" >
         <action

@@ -9,6 +9,9 @@ class FeedViewModel : ViewModel() {
 
     private val _feedList = MutableLiveData<List<FeedItem>>()
 
+    // Expose the list as LiveData
+    val feedList: LiveData<List<FeedItem>> get() = _feedList
+
     init {
         setFeedList(listOf(
             FeedItem(1,"https://scontent-del1-1.cdninstagram.com/v/t39.30808-6/457798007_18452880007007330_607956298020227910_n.jpg?stp=dst-jpg_e35&efg=eyJ2ZW5jb2RlX3RhZyI6ImltYWdlX3VybGdlbi4xNDQweDE3OTYuc2RyLmYzMDgwOC5kZWZhdWx0X2ltYWdlIn0&_nc_ht=scontent-del1-1.cdninstagram.com&_nc_cat=102&_nc_ohc=3tca9f5Zc9oQ7kNvgFqBL8v&edm=AEhyXUkAAAAA&ccb=7-5&ig_cache_key=MzQ0Njc4NDQ4MzczMzg5NjgwMw%3D%3D.2-ccb7-5&oh=00_AYB2BDpIRmPLkm6XvMcHRqJmB3YA1x9Kb2ZPmX8qNZW_8Q&oe=66D8D72E&_nc_sid=8f1549","Yash","10","100"),
@@ -18,9 +21,6 @@ class FeedViewModel : ViewModel() {
             FeedItem(5,"https://scontent-del2-1.cdninstagram.com/v/t39.30808-6/457508948_18331492393182345_7277123280765951851_n.jpg?stp=dst-jpg_e35&efg=eyJ2ZW5jb2RlX3RhZyI6ImltYWdlX3VybGdlbi4xNDQweDE4MDAuc2RyLmYzMDgwOC5kZWZhdWx0X2ltYWdlIn0&_nc_ht=scontent-del2-1.cdninstagram.com&_nc_cat=109&_nc_ohc=W9Jg2YN2g5gQ7kNvgHDDkMD&edm=AEhyXUkAAAAA&ccb=7-5&ig_cache_key=MzQ0NTMxNDYxNDM1ODM1NDU1Mg%3D%3D.2-ccb7-5&oh=00_AYALMxg-yMOqAB2WB3ZkLy9k-9R8asYxFvhw4i4FEg5q_Q&oe=66D8FCAE&_nc_sid=8f1549","fearlesssher","10","100")
         ))
     }
-
-    // Expose the list as LiveData
-    val feedList: LiveData<List<FeedItem>> get() = _feedList
 
     fun setFeedList(newList: List<FeedItem>) {
         _feedList.value = newList

@@ -1,4 +1,4 @@
-package com.example.fitin.ui.register
+package com.example.fitin.ui.login_register
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -8,11 +8,11 @@ import android.view.ViewGroup
 import androidx.navigation.NavOptions
 import androidx.navigation.fragment.findNavController
 import com.example.fitin.R
-import com.example.fitin.databinding.FragmentRegisterBinding
+import com.example.fitin.databinding.FragmentLoginBinding
 
-class Register : Fragment() {
+class Login : Fragment() {
 
-    private var _binding:FragmentRegisterBinding? = null
+    private var _binding:FragmentLoginBinding? = null
     private val binding get() = _binding!!
 
     override fun onCreateView(
@@ -20,25 +20,25 @@ class Register : Fragment() {
         savedInstanceState: Bundle?
     ): View {
 
-        _binding = FragmentRegisterBinding.inflate(inflater,container,false)
+        _binding = FragmentLoginBinding.inflate(inflater,container,false)
         val root = binding.root
 
         binding.apply {
 
             val controller = findNavController()
 
-            loginUser.setOnClickListener {
-                controller.navigate(R.id.action_register_to_login)
-            }
-
-            register.setOnClickListener {
+            login.setOnClickListener {
 
                 val navOptions = NavOptions.Builder()
-                    .setPopUpTo(R.id.register, true) // `true` makes it inclusive, removing the login fragment from the back stack
+                    .setPopUpTo(R.id.login, true) // `true` makes it inclusive, removing the login fragment from the back stack
                     .build()
 
-                controller.navigate(R.id.action_register_to_navigation_home, null, navOptions)
+                controller.navigate(R.id.action_login_to_navigation_home, null, navOptions)
 
+            }
+
+            registerUser.setOnClickListener {
+                controller.navigate(R.id.action_login_to_register)
             }
 
         }

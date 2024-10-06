@@ -1,4 +1,4 @@
-package com.example.fitin.ui.login
+package com.example.fitin.ui.login_register
 
 import androidx.lifecycle.ViewModel
 
