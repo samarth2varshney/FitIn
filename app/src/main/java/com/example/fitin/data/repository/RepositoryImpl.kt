@@ -23,4 +23,46 @@ class RepositoryImpl @Inject constructor(
         }
     }
 
+    override suspend fun login(user: UserSignUpResponse.User): Resource<UserSignUpResponse> {
+        return try {
+            Resource.Success(
+                data = api.login(
+                    user
+                )
+            )
+        }catch (e: Exception){
+            e.printStackTrace()
+            Resource.Error(e.message ?: "An unknown error")
+        }
+    }
+
+    override suspend fun updateProfile(token:String,user: UserSignUpResponse.User): Resource<UserSignUpResponse> {
+        return try {
+            Resource.Success(
+                data = api.updateProfile(
+                    token,
+                    user
+                )
+            )
+        }catch (e: Exception){
+            e.printStackTrace()
+            Resource.Error(e.message ?: "An unknown error")
+        }
+    }
+
+    override suspend fun logout(token:String,user: UserSignUpResponse.User): Resource<UserSignUpResponse> {
+        return try {
+            Resource.Success(
+                data = api.logout(
+                    token,
+                    user
+                )
+            )
+        }catch (e: Exception){
+            e.printStackTrace()
+            Resource.Error(e.message ?: "An unknown error")
+        }
+    }
+
+
 }

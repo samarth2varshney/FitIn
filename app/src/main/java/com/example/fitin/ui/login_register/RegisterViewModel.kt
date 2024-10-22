@@ -8,11 +8,13 @@ import androidx.lifecycle.viewModelScope
 import com.example.fitin.domain.data.UserSignUpResponse
 import com.example.fitin.domain.repository.Repository
 import com.example.fitin.domain.util.Resource
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.asSharedFlow
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
+@HiltViewModel
 class RegisterViewModel @Inject constructor(
     private val repository: Repository
 ) : ViewModel() {
@@ -34,7 +36,7 @@ class RegisterViewModel @Inject constructor(
             showToast("Email cannot be empty")
         } else if (user.password.isNullOrEmpty()) {
             showToast("Password cannot be empty")
-        } else if (!isValidPassword(user.password)) {
+        } else if (!isValidPassword(user.password!!)) {
             showToast("Password must be at least 8 characters long, include a lowercase letter, a digit, and a special character")
         }else {
 
@@ -47,6 +49,7 @@ class RegisterViewModel @Inject constructor(
 
                     is Resource.Error -> {
                         Log.i("RegisterViewModel", "error message ${result.message}")
+                        showToast(result.message.toString())
                     }
                 }
 

@@ -6,15 +6,15 @@ data class UserSignUpResponse(
 ) {
 
     data class User(
-        val id: String = "",
-        val username: String?,
-        val email: String?,
-        val password: String?,
-        val session: Any?,
-        val role: String?,
-        val mobilenumber: String?,
-        val gender: String?,
-        val dob: String?
+        var id: String = "",
+        var username: String? = null,
+        var email: String? = null,
+        var password: String? = null,
+        var session: Any? = null,
+        var role: String? = null,
+        var mobilenumber: String? = null,
+        var gender: String? = null,
+        var dob: String? = null
     )
 
 }

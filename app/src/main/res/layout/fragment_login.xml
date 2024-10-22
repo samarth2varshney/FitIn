@@ -19,7 +19,7 @@
         android:layout_height="wrap_content"
         android:background="@drawable/edit_text_background"
         android:layout_marginTop="15dp"
-        android:hint="Email"
+        android:hint="Email/Username"
         android:padding="10dp"
         android:id="@+id/email"/>
 
