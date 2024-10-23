@@ -145,6 +145,8 @@ dependencies {
 
     implementation ("com.squareup.retrofit2:converter-moshi:2.9.0")
 
+    implementation ("com.google.android.material:material:1.9.0")
+
 }
 
 // Allow references to generated code

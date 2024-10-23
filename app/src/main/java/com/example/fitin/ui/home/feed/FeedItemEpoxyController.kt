@@ -7,18 +7,19 @@ import com.example.fitin.ViewBindingKotlinModel
 import com.example.fitin.data.remote.FeedItem
 import com.example.fitin.databinding.FeedItemBinding
 
-class FeedItemEpoxyController:TypedEpoxyController<List<FeedItem>>() {
+class FeedItemEpoxyController(private val callback: (() -> Unit)):TypedEpoxyController<List<FeedItem>>() {
 
     override fun buildModels(data: List<FeedItem>?) {
         if(data.isNullOrEmpty()){
             return
         }
         data.forEach{ feedItem ->
-            ItemEpoxyModel(feedItem.imageUrl,feedItem.influencerName,feedItem.likes,feedItem.comments).id(feedItem.id).addTo(this)
+            ItemEpoxyModel(callback,feedItem.imageUrl,feedItem.influencerName,feedItem.likes,feedItem.comments).id(feedItem.id).addTo(this)
         }
     }
 
     data class ItemEpoxyModel(
+        private val callback: (() -> Unit),
         val imageUrl:String,
         val influencerName:String,
         val likes:String,
@@ -36,6 +37,10 @@ class FeedItemEpoxyController:TypedEpoxyController<List<FeedItem>>() {
             author.text = influencerName
             noOfLikes.text = likes
             noOfComments.text = comments
+
+            comment.setOnClickListener {
+                callback.invoke()
+            }
 
             like.setOnClickListener {
                 val isLiked = like.tag as? Boolean ?: false

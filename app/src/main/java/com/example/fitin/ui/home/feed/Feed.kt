@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
 import com.airbnb.epoxy.EpoxyRecyclerView
 import com.example.fitin.databinding.FragmentFeedBinding
+import com.example.fitin.ui.CommentsBottomSheet
 
 class Feed : Fragment() {
 
@@ -27,7 +28,9 @@ class Feed : Fragment() {
 
         binding.apply {
 
-            val controller = FeedItemEpoxyController()
+            val controller = FeedItemEpoxyController(callback = {
+                CommentsBottomSheet().show(childFragmentManager,"comments")
+            })
 
             epoxyRecyclerView.post {
                 epoxyRecyclerView.setController(controller)
