@@ -7,7 +7,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.NavOptions
+import androidx.navigation.fragment.findNavController
 import com.airbnb.epoxy.EpoxyRecyclerView
+import com.example.fitin.R
 import com.example.fitin.databinding.FragmentPlansBinding
 
 class Plans : Fragment() {
@@ -28,7 +31,17 @@ class Plans : Fragment() {
 
         binding.apply {
 
-            val controller = PlanItemEpoxyControl()
+            val controller = PlanItemEpoxyControl(callback = {
+
+                val navOptions = NavOptions.Builder()
+                    .setPopUpTo(R.id.feed,true)
+                    .build()
+
+                val controller = findNavController()
+
+                controller.navigate(R.id.action_navigation_home_to_programDetailsFragment,null,navOptions)
+
+            })
 
             epoxyRecyclerView.post {
                 epoxyRecyclerView.setController(controller)
