@@ -12,17 +12,11 @@
         tools:layout="@layout/fragment_home">
 
         <action
-            android:id="@+id/action_navigation_home_to_plans"
-            app:destination="@id/plans" />
-        <action
-            android:id="@+id/action_navigation_home_to_rankings"
-            app:destination="@id/rankings" />
-        <action
-            android:id="@+id/action_navigation_home_to_feed"
-            app:destination="@id/feed" />
-        <action
             android:id="@+id/action_navigation_home_to_programDetailsFragment"
             app:destination="@id/programDetailsFragment" />
+        <action
+            android:id="@+id/action_navigation_home_to_chatFragment"
+            app:destination="@id/chatFragment" />
     </fragment>
 
     <fragment
@@ -81,4 +75,18 @@
         android:name="com.example.fitin.ui.program_details.ProgramDetailsFragment"
         android:label="fragment_program_details"
         tools:layout="@layout/fragment_program_details" />
+    <fragment
+        android:id="@+id/chatFragment"
+        android:name="com.example.fitin.ui.Chat.ChatFragment"
+        android:label="fragment_chat"
+        tools:layout="@layout/fragment_chat" >
+        <action
+            android:id="@+id/action_chatFragment_to_messagingFragment"
+            app:destination="@id/messagingFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/messagingFragment"
+        android:name="com.example.fitin.ui.Chat.messaging.MessagingFragment"
+        android:label="fragment_messaging"
+        tools:layout="@layout/fragment_messaging" />
 </navigation>

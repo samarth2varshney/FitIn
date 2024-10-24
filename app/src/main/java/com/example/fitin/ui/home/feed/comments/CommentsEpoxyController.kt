@@ -1,11 +1,10 @@
-package com.example.fitin.ui
+package com.example.fitin.ui.home.feed.comments
 
 import com.airbnb.epoxy.TypedEpoxyController
 import com.example.fitin.R
 import com.example.fitin.ViewBindingKotlinModel
 import com.example.fitin.data.remote.CommentItem
 import com.example.fitin.databinding.CommentsItemBinding
-import com.example.fitin.databinding.FeedItemBinding
 
 class CommentsEpoxyController:TypedEpoxyController<List<CommentItem>>() {
 

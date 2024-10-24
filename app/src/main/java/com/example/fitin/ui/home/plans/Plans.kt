@@ -34,7 +34,7 @@ class Plans : Fragment() {
             val controller = PlanItemEpoxyControl(callback = {
 
                 val navOptions = NavOptions.Builder()
-                    .setPopUpTo(R.id.feed,true)
+                    .setPopUpTo(R.id.navigation_home,true)
                     .build()
 
                 val controller = findNavController()

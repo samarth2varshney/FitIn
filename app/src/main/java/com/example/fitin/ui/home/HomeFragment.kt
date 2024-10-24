@@ -10,10 +10,13 @@ import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.NavOptions
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.ViewPager2
 import com.example.fitin.R
 import com.example.fitin.databinding.FragmentHomeBinding
+import com.example.fitin.ui.home.plans.PlanItemEpoxyControl
 
 class HomeFragment : Fragment() {
 
@@ -65,6 +68,18 @@ class HomeFragment : Fragment() {
                 attachScrollListener(position)
             }
         })
+
+        binding.chatIcon.setOnClickListener {
+
+            val navOptions = NavOptions.Builder()
+                .setPopUpTo(R.id.navigation_home,false)
+                .build()
+
+            val controller = findNavController()
+
+            controller.navigate(R.id.action_navigation_home_to_chatFragment,null,navOptions)
+
+        }
 
         return root
     }

@@ -8,7 +8,7 @@ import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
 import com.airbnb.epoxy.EpoxyRecyclerView
 import com.example.fitin.databinding.FragmentFeedBinding
-import com.example.fitin.ui.CommentsBottomSheet
+import com.example.fitin.ui.home.feed.comments.CommentsBottomSheet
 
 class Feed : Fragment() {
 

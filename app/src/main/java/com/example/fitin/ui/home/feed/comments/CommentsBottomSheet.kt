@@ -1,4 +1,4 @@
-package com.example.fitin.ui
+package com.example.fitin.ui.home.feed.comments
 
 import android.app.Dialog
 import android.os.Bundle
