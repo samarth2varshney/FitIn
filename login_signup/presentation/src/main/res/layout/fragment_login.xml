@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:gravity="center"
     android:padding="12dp"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".ui.login_register.SignUpFragment">
+    android:layout_height="match_parent">
 
     <ImageView
         android:layout_width="wrap_content"
@@ -18,7 +18,7 @@
         android:layout_height="wrap_content"
         android:background="@drawable/edit_text_background"
         android:layout_marginTop="15dp"
-        android:hint="Email"
+        android:hint="Email/Username"
         android:padding="10dp"
         android:id="@+id/email"/>
 
@@ -31,37 +31,9 @@
         android:padding="10dp"
         android:id="@+id/password"/>
 
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@drawable/edit_text_background"
-        android:layout_marginTop="15dp"
-        android:hint="Name"
-        android:padding="10dp"
-        android:id="@+id/name"/>
-
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@drawable/edit_text_background"
-        android:layout_marginTop="15dp"
-        android:hint="Gender"
-        android:padding="10dp"
-        android:id="@+id/gender"/>
-
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@drawable/edit_text_background"
-        android:layout_marginTop="15dp"
-        android:hint="Date of Birth"
-        android:padding="10dp"
-        android:id="@+id/dob"/>
-
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/button_background"
         android:layout_marginTop="15sp"
         android:text="LOGIN"
         android:padding="10dp"
@@ -70,7 +42,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Already registered? Login"
+        android:text="New to FitIn? Register"
         android:layout_marginTop="15dp"
         android:id="@+id/register_user"/>
 

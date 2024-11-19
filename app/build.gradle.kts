@@ -120,6 +120,8 @@ dependencies {
     androidTestImplementation("androidx.test.ext:junit:1.2.1")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.6.1")
 
+    implementation(project(":login_signup:presentation"))
+
     // Library for Data Scrolling
     implementation ("com.airbnb.android:epoxy:4.6.3")
 
@@ -149,7 +151,6 @@ dependencies {
 
 }
 
-// Allow references to generated code
 kapt {
     correctErrorTypes = true
 }

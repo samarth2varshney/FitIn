@@ -1,22 +1,19 @@
 package com.example.fitin.ui.Chat.messaging
 
 import com.airbnb.epoxy.TypedEpoxyController
-import com.bumptech.glide.Glide
 import com.example.fitin.R
 import com.example.fitin.ViewBindingKotlinModel
-import com.example.fitin.data.remote.ChatItem
 import com.example.fitin.data.remote.Message
-import com.example.fitin.databinding.ChatItemBinding
 import com.example.fitin.databinding.ItemReceivedMessageBinding
 import com.example.fitin.databinding.ItemSentMessageBinding
 
-class MessageItemEpoxyController(): TypedEpoxyController<List<Message>>() {
+class MessageItemEpoxyController: TypedEpoxyController<List<Message>>() {
 
     override fun buildModels(messages: List<Message>?) {
         if(messages.isNullOrEmpty()){
             return
         }
-        messages.forEachIndexed { index, message ->
+        messages.forEachIndexed { _, message ->
             if (message.isSent) {
                 SentMessageModel(message.text).id(1).addTo(this)
             } else {

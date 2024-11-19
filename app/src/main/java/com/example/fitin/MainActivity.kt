@@ -30,7 +30,8 @@ class MainActivity : AppCompatActivity() {
         navController.addOnDestinationChangedListener { _, destination, _ ->
             when (destination.id) {
                 R.id.login -> navView.visibility = View.GONE
-                R.id.register -> navView.visibility = View.GONE
+                R.id.signup -> navView.visibility = View.GONE
+                R.id.messagingFragment -> navView.visibility = View.GONE
                 else -> navView.visibility = View.VISIBLE
             }
         }

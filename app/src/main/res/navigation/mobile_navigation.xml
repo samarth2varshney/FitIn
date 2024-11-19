@@ -10,7 +10,8 @@
         android:name="com.example.fitin.ui.home.HomeFragment"
         android:label="@string/title_home"
         tools:layout="@layout/fragment_home">
-
+        <deepLink
+            app:uri="android-app://example.fitin.app/navigation_home"/>
         <action
             android:id="@+id/action_navigation_home_to_programDetailsFragment"
             app:destination="@id/programDetailsFragment" />
@@ -48,9 +49,11 @@
     </fragment>
     <fragment
         android:id="@+id/login"
-        android:name="com.example.fitin.ui.login_register.Login"
+        android:name="com.example.presentation.LoginFragment"
         android:label="fragment_login"
         tools:layout="@layout/fragment_login" >
+        <deepLink
+            app:uri="android-app://example.fitin.app/login"/>
         <action
             android:id="@+id/action_login_to_navigation_home"
             app:destination="@id/navigation_home" />
@@ -59,10 +62,12 @@
             app:destination="@id/register" />
     </fragment>
     <fragment
-        android:id="@+id/register"
-        android:name="com.example.fitin.ui.login_register.Register"
+        android:id="@+id/signup"
+        android:name="com.example.presentation.SignupFragment"
         android:label="fragment_register"
         tools:layout="@layout/fragment_register" >
+        <deepLink
+            app:uri="android-app://example.fitin.app/signup"/>
         <action
             android:id="@+id/action_register_to_login"
             app:destination="@id/login" />

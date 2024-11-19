@@ -15,4 +15,7 @@ dependencyResolutionManagement {
 
 rootProject.name = "FitIn"
 include(":app")
- 
+include(":core:util")
+include(":login_signup:login_signup_data")
+include(":login_signup:login_signup_domain")
+include(":login_signup:presentation")

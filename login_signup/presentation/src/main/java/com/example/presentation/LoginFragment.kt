@@ -1,25 +1,24 @@
-package com.example.fitin.ui.login_register
+package com.example.presentation
 
+import androidx.fragment.app.viewModels
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import androidx.fragment.app.viewModels
+import androidx.core.net.toUri
 import androidx.lifecycle.lifecycleScope
-import androidx.navigation.NavOptions
+import androidx.navigation.NavDeepLinkRequest
 import androidx.navigation.fragment.findNavController
-import com.example.fitin.R
-import com.example.fitin.databinding.FragmentLoginBinding
-import com.example.fitin.domain.data.UserSignUpResponse
+import com.example.presentation.databinding.FragmentLoginBinding
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
-class Login : Fragment() {
+class LoginFragment : Fragment() {
 
-    private var _binding:FragmentLoginBinding? = null
+    private var _binding: FragmentLoginBinding? = null
     private val binding get() = _binding!!
 
     private val viewModel: LoginViewModel by viewModels()
@@ -38,35 +37,26 @@ class Login : Fragment() {
             }
         }
 
-        val navOptions = NavOptions.Builder()
-            .setPopUpTo(R.id.login, true)
-            .build()
-
-        findNavController().navigate(R.id.action_login_to_navigation_home, null, navOptions)
-
-
         binding.apply {
-
-            val controller = findNavController()
 
             viewModel.loginSuccess.observe(viewLifecycleOwner){
                 if(it){
-                    val navOptions = NavOptions.Builder()
-                        .setPopUpTo(R.id.login, true)
+                    val request = NavDeepLinkRequest.Builder
+                        .fromUri("android-app://example.fitin.app/navigation_home".toUri())
                         .build()
-
-                    controller.navigate(R.id.action_login_to_navigation_home, null, navOptions)
+                    findNavController().navigate(request)
                 }
             }
 
             login.setOnClickListener {
-
                 viewModel.login(binding.email.text.toString(),binding.password.text.toString())
-
             }
 
             registerUser.setOnClickListener {
-                controller.navigate(R.id.action_login_to_register)
+                val request = NavDeepLinkRequest.Builder
+                    .fromUri("android-app://example.fitin.app/signup".toUri())
+                    .build()
+                findNavController().navigate(request)
             }
 
         }
