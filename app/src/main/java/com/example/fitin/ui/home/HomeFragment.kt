@@ -16,7 +16,6 @@ import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.ViewPager2
 import com.example.fitin.R
 import com.example.fitin.databinding.FragmentHomeBinding
-import com.example.fitin.ui.home.plans.PlanItemEpoxyControl
 
 class HomeFragment : Fragment() {
 

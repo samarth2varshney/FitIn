@@ -121,6 +121,8 @@ dependencies {
     androidTestImplementation("androidx.test.espresso:espresso-core:3.6.1")
 
     implementation(project(":login_signup:presentation"))
+    implementation(project(":home:presentation"))
+    implementation(project(":chat"))
 
     // Library for Data Scrolling
     implementation ("com.airbnb.android:epoxy:4.6.3")

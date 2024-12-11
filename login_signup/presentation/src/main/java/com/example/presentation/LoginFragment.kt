@@ -49,7 +49,11 @@ class LoginFragment : Fragment() {
             }
 
             login.setOnClickListener {
-                viewModel.login(binding.email.text.toString(),binding.password.text.toString())
+//                viewModel.login(binding.email.text.toString(),binding.password.text.toString())
+                val request = NavDeepLinkRequest.Builder
+                    .fromUri("android-app://example.fitin.app/navigation_home".toUri())
+                    .build()
+                findNavController().navigate(request)
             }
 
             registerUser.setOnClickListener {

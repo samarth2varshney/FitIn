@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+    <style name="BottomNavTextAppearance" parent="TextAppearance.AppCompat.Small">
+        <item name="android:paddingTop">20dp</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:layout_gravity">center_horizontal</item>
+        <item name="android:gravity">center_horizontal</item>
+    </style>
+
+<!--    <resources>-->
+<!--        <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">-->
+<!--            <item name="android:statusBarColor">@color/black</item>-->
+<!--            <item name="colorPrimary">@color/black</item>-->
+<!--            <item name="colorPrimaryDark">@color/black</item>-->
+<!--        </style>-->
+<!--    </resources>-->
+
+</resources>

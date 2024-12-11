@@ -1,0 +1,18 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/navigation_feed"
+        android:title="@string/title_home"
+        android:icon="@drawable/feeds_icon"
+        />
+
+    <item
+        android:id="@+id/navigation_rankings"
+        android:title="@string/title_ranking"
+        android:icon="@drawable/ranking"/>
+
+    <item
+        android:id="@+id/navigation_plans"
+        android:title="@string/title_plan"
+        android:icon="@drawable/dumbbell"/>
+</menu>

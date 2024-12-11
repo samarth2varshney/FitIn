@@ -1,6 +1,5 @@
 package com.example.fitin.ui.home.plans
 
-import androidx.fragment.app.viewModels
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -27,7 +26,7 @@ class Plans : Fragment() {
         _binding = FragmentPlansBinding.inflate(inflater, container, false)
         val root = binding.root
 
-        val PlanViewModel = ViewModelProvider(this)[PlansViewModel::class.java]
+        val planViewModel = ViewModelProvider(this)[PlansViewModel::class.java]
 
         binding.apply {
 
@@ -47,7 +46,7 @@ class Plans : Fragment() {
                 epoxyRecyclerView.setController(controller)
             }
 
-            PlanViewModel.planList.observe(viewLifecycleOwner){
+            planViewModel.planList.observe(viewLifecycleOwner){
                 controller.setData(it)
             }
 

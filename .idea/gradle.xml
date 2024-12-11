@@ -10,12 +10,24 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
+            <option value="$PROJECT_DIR$/chat" />
+            <option value="$PROJECT_DIR$/chatting" />
             <option value="$PROJECT_DIR$/core" />
             <option value="$PROJECT_DIR$/core/util" />
+            <option value="$PROJECT_DIR$/feed" />
+            <option value="$PROJECT_DIR$/feed/presentation" />
+            <option value="$PROJECT_DIR$/home" />
+            <option value="$PROJECT_DIR$/home/presentation" />
             <option value="$PROJECT_DIR$/login_signup" />
             <option value="$PROJECT_DIR$/login_signup/login_signup_data" />
             <option value="$PROJECT_DIR$/login_signup/login_signup_domain" />
             <option value="$PROJECT_DIR$/login_signup/presentation" />
+            <option value="$PROJECT_DIR$/plans" />
+            <option value="$PROJECT_DIR$/plans/presentation" />
+            <option value="$PROJECT_DIR$/program_details" />
+            <option value="$PROJECT_DIR$/rankings" />
+            <option value="$PROJECT_DIR$/rankings/presentation" />
+            <option value="$PROJECT_DIR$/search" />
           </set>
         </option>
         <option name="resolveExternalAnnotations" value="false" />

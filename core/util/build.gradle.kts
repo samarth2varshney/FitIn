@@ -32,6 +32,9 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
+    buildFeatures {
+        viewBinding = true
+    }
 }
 
 dependencies {
@@ -48,6 +51,9 @@ dependencies {
     kapt("com.google.dagger:hilt-android-compiler:2.51.1")
 
     implementation ("com.squareup.retrofit2:converter-moshi:2.9.0")
+
+    // Library for Data Scrolling
+    implementation ("com.airbnb.android:epoxy:4.6.3")
 
 }
 

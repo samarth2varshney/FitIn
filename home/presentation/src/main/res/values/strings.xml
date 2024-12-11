@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">FitIn</string>
+    <string name="title_home">Feed</string>
+    <string name="title_search">Search</string>
+    <string name="title_profile">Profile</string>
+    <string name="title_plan">Plans</string>
+    <string name="title_ranking">Trending</string>
+</resources>

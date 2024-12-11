@@ -49,7 +49,7 @@
     </fragment>
     <fragment
         android:id="@+id/login"
-        android:name="com.example.presentation.LoginFragment"
+        android:name="com.example.fitin.ui.login_register.Login"
         android:label="fragment_login"
         tools:layout="@layout/fragment_login" >
         <deepLink
@@ -63,7 +63,7 @@
     </fragment>
     <fragment
         android:id="@+id/signup"
-        android:name="com.example.presentation.SignupFragment"
+        android:name="com.example.fitin.ui.login_register.Register"
         android:label="fragment_register"
         tools:layout="@layout/fragment_register" >
         <deepLink
@@ -88,6 +88,8 @@
         <action
             android:id="@+id/action_chatFragment_to_messagingFragment"
             app:destination="@id/messagingFragment" />
+        <deepLink
+            app:uri="android-app://example.fitin.app/navigation_chat"/>
     </fragment>
     <fragment
         android:id="@+id/messagingFragment"
