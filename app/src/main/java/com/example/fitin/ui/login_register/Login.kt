@@ -11,15 +11,14 @@ import androidx.lifecycle.lifecycleScope
 import androidx.navigation.NavOptions
 import androidx.navigation.fragment.findNavController
 import com.example.fitin.R
-import com.example.fitin.databinding.FragmentLoginBinding
-import com.example.fitin.domain.data.UserSignUpResponse
+import com.example.fitin.databinding.FragmentLogin1Binding
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
 class Login : Fragment() {
 
-    private var _binding:FragmentLoginBinding? = null
+    private var _binding:FragmentLogin1Binding? = null
     private val binding get() = _binding!!
 
     private val viewModel: LoginViewModel by viewModels()
@@ -29,7 +28,7 @@ class Login : Fragment() {
         savedInstanceState: Bundle?
     ): View {
 
-        _binding = FragmentLoginBinding.inflate(inflater,container,false)
+        _binding = FragmentLogin1Binding.inflate(inflater,container,false)
         val root = binding.root
 
         lifecycleScope.launch {
@@ -61,8 +60,12 @@ class Login : Fragment() {
 
             login.setOnClickListener {
 
-                viewModel.login(binding.email.text.toString(),binding.password.text.toString())
+//                viewModel.login(binding.email.text.toString(),binding.password.text.toString())
+                val navOptions = NavOptions.Builder()
+                    .setPopUpTo(R.id.login, true)
+                    .build()
 
+                controller.navigate(R.id.action_login_to_navigation_home, null, navOptions)
             }
 
             registerUser.setOnClickListener {

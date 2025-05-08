@@ -1,17 +1,15 @@
-package com.example.fitin.ui.Chat.messaging
+package com.example.presentation.messaging
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.example.fitin.data.remote.Message
-import com.example.fitin.databinding.FragmentMessaging1Binding
-
+import com.example.presentation.databinding.FragmentMessagingBinding
 
 class MessagingFragment : Fragment() {
 
-    private var _binding:FragmentMessaging1Binding? = null
+    private var _binding: FragmentMessagingBinding? = null
     private val binding get() = _binding!!
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -24,14 +22,14 @@ class MessagingFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
 
-        _binding = FragmentMessaging1Binding.inflate(layoutInflater,container,false)
+        _binding = FragmentMessagingBinding.inflate(layoutInflater,container,false)
 
         val controller = MessageItemEpoxyController()
 
         binding.epoxyRecyclerView.setController(controller)
 
         val messages = listOf(
-            Message("Hello!", isSent = false),
+            Message("Hello! bro how's your day", isSent = false),
             Message("Hi, how are you?", isSent = true),
             Message("I'm doing well, thanks!", isSent = false),
             Message("Great to hear!", isSent = true),
@@ -43,5 +41,4 @@ class MessagingFragment : Fragment() {
 
         return binding.root
     }
-
 }

@@ -9,13 +9,13 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.viewpager2.widget.ViewPager2
 import com.example.fitin.databinding.FragmentProfileBinding
+import com.example.fitin.ui.search.SearchItemEpoxyController
+import com.example.fitin.ui.search.SearchViewModel
 
 class ProfileFragment : Fragment() {
 
     private var _binding: FragmentProfileBinding? = null
 
-    // This property is only valid between onCreateView and
-    // onDestroyView.
     private val binding get() = _binding!!
 
     override fun onCreateView(
@@ -23,28 +23,41 @@ class ProfileFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val profileViewModel = ViewModelProvider(this).get(ProfileViewModel::class.java)
+        val searchViewModel = ViewModelProvider(this).get(SearchViewModel::class.java)
 
         _binding = FragmentProfileBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        val viewPager: ViewPager2 = binding.fragmentContainer
-        viewPager.adapter = ProfilePagerAdapter(this)
+//        val viewPager: ViewPager2 = binding.fragmentContainer
+//        viewPager.adapter = ProfilePagerAdapter(this)
 
         highlightIcon(0)
 
-        viewPager.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
-            override fun onPageSelected(position: Int) {
-                highlightIcon(position)
+//        viewPager.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
+//            override fun onPageSelected(position: Int) {
+//                highlightIcon(position)
+//            }
+//        })
+//
+//        binding.iconPosts.setOnClickListener {
+//            viewPager.setCurrentItem(0, true)
+//        }
+//
+//        binding.iconBookmarks.setOnClickListener {
+//            viewPager.setCurrentItem(1, true)
+//        }
+
+        binding.apply {
+            val controller = SearchItemEpoxyController()
+
+            posts.post {
+                posts.setController(controller)
             }
-        })
 
-        binding.iconPosts.setOnClickListener {
-            viewPager.setCurrentItem(0, true)
-        }
+            searchViewModel.searchList.observe(viewLifecycleOwner) {
+                controller.setData(it)
+            }
 
-        binding.iconBookmarks.setOnClickListener {
-            viewPager.setCurrentItem(1, true)
         }
 
         return root

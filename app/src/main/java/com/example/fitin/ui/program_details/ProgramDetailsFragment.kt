@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
 import com.example.fitin.R
 import com.example.fitin.databinding.FragmentProgramDetailsBinding
 
@@ -30,6 +31,11 @@ class ProgramDetailsFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentProgramDetailsBinding.inflate(inflater,container,false)
+
+        binding.buyNow.setOnClickListener {
+            findNavController().navigate(R.id.purchaseFragment)
+        }
+
         return binding.root
     }
 

@@ -7,9 +7,9 @@
 
     <fragment
         android:id="@+id/navigation_home"
-        android:name="com.example.fitin.ui.home.HomeFragment"
+        android:name="com.example.presentation.HomeFragment"
         android:label="@string/title_home"
-        tools:layout="@layout/fragment_home">
+        tools:layout="@layout/fragment_home1">
         <deepLink
             app:uri="android-app://example.fitin.app/navigation_home"/>
         <action
@@ -49,9 +49,9 @@
     </fragment>
     <fragment
         android:id="@+id/login"
-        android:name="com.example.fitin.ui.login_register.Login"
+        android:name="com.example.presentation.LoginFragment"
         android:label="fragment_login"
-        tools:layout="@layout/fragment_login" >
+        tools:layout="@layout/fragment_login1" >
         <deepLink
             app:uri="android-app://example.fitin.app/login"/>
         <action
@@ -63,7 +63,7 @@
     </fragment>
     <fragment
         android:id="@+id/signup"
-        android:name="com.example.fitin.ui.login_register.Register"
+        android:name="com.example.presentation.SignupFragment"
         android:label="fragment_register"
         tools:layout="@layout/fragment_register" >
         <deepLink
@@ -82,9 +82,9 @@
         tools:layout="@layout/fragment_program_details" />
     <fragment
         android:id="@+id/chatFragment"
-        android:name="com.example.fitin.ui.Chat.ChatFragment"
+        android:name="com.example.presentation.ChatFragment"
         android:label="fragment_chat"
-        tools:layout="@layout/fragment_chat" >
+        tools:layout="@layout/fragment_chat1" >
         <action
             android:id="@+id/action_chatFragment_to_messagingFragment"
             app:destination="@id/messagingFragment" />
@@ -95,5 +95,13 @@
         android:id="@+id/messagingFragment"
         android:name="com.example.fitin.ui.Chat.messaging.MessagingFragment"
         android:label="fragment_messaging"
-        tools:layout="@layout/fragment_messaging" />
+        tools:layout="@layout/fragment_messaging1" />
+    <fragment
+        android:id="@+id/purchaseFragment"
+        android:name="com.example.fitin.ui.PurchaseFragment"
+        android:label="PurchaseFragment" />
+    <fragment
+        android:id="@+id/navigation_calorieCounter"
+        android:name="com.example.fitin.ui.CalorieCounterFragment"
+        android:label="CalorieCounterFragment" />
 </navigation>

@@ -11,7 +11,7 @@
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/chat" />
-            <option value="$PROJECT_DIR$/chatting" />
+            <option value="$PROJECT_DIR$/chat/presentation" />
             <option value="$PROJECT_DIR$/core" />
             <option value="$PROJECT_DIR$/core/util" />
             <option value="$PROJECT_DIR$/feed" />

@@ -7,19 +7,20 @@ import com.example.fitin.ViewBindingKotlinModel
 import com.example.fitin.data.remote.FeedItem
 import com.example.fitin.databinding.FeedItemBinding
 
-class FeedItemEpoxyController(private val callback: (() -> Unit)):TypedEpoxyController<List<FeedItem>>() {
+class FeedItemEpoxyController(private val commentsCallback: (() -> Unit),private val profileCallback: (() -> Unit)):TypedEpoxyController<List<FeedItem>>() {
 
     override fun buildModels(data: List<FeedItem>?) {
         if(data.isNullOrEmpty()){
             return
         }
         data.forEach{ feedItem ->
-            ItemEpoxyModel(callback,feedItem.imageUrl,feedItem.influencerName,feedItem.likes,feedItem.comments).id(feedItem.id).addTo(this)
+            ItemEpoxyModel(commentsCallback,profileCallback,feedItem.imageUrl,feedItem.influencerName,feedItem.likes,feedItem.comments).id(feedItem.id).addTo(this)
         }
     }
 
     data class ItemEpoxyModel(
-        private val callback: (() -> Unit),
+        private val commentsCallback: (() -> Unit),
+        private val profileCallback: (() -> Unit),
         val imageUrl:String,
         val influencerName:String,
         val likes:String,
@@ -34,12 +35,17 @@ class FeedItemEpoxyController(private val callback: (() -> Unit)):TypedEpoxyCont
                 .error(R.drawable.ic_launcher_foreground)
                 .into(postImage)
 
-            author.text = influencerName
+//            author.text = influencerName
             noOfLikes.text = likes
             noOfComments.text = comments
+            username.text = influencerName
 
             comment.setOnClickListener {
-                callback.invoke()
+                commentsCallback.invoke()
+            }
+
+            profile.setOnClickListener {
+                profileCallback.invoke()
             }
 
             like.setOnClickListener {

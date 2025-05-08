@@ -122,7 +122,7 @@ dependencies {
 
     implementation(project(":login_signup:presentation"))
     implementation(project(":home:presentation"))
-    implementation(project(":chat"))
+    implementation(project(":chat:presentation"))
 
     // Library for Data Scrolling
     implementation ("com.airbnb.android:epoxy:4.6.3")
@@ -150,6 +150,8 @@ dependencies {
     implementation ("com.squareup.retrofit2:converter-moshi:2.9.0")
 
     implementation ("com.google.android.material:material:1.9.0")
+
+    implementation ("com.razorpay:checkout:1.6.7")
 
 }
 

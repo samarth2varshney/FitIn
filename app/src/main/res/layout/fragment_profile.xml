@@ -18,8 +18,8 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="-10dp"
-        app:cardCornerRadius="15dp"
         android:background="@color/black"
+        app:cardCornerRadius="15dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/backgroundImage">
@@ -52,70 +52,70 @@
                 android:text="NAME"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toTopOf="@id/container_2"
-                app:layout_constraintTop_toBottomOf="@id/user_profile_image"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"/>
+                app:layout_constraintTop_toBottomOf="@id/user_profile_image" />
 
-           <LinearLayout
-               android:id="@+id/container_2"
-               android:layout_width="match_parent"
-               android:layout_height="wrap_content"
-               android:weightSum="2"
-               android:layout_marginTop="10dp"
-               android:gravity="center"
-               app:layout_constraintTop_toBottomOf="@id/user_profile_name"
-               app:layout_constraintStart_toStartOf="parent"
-               app:layout_constraintEnd_toEndOf="parent"
-               android:visibility="visible">
+            <LinearLayout
+                android:id="@+id/container_2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:gravity="center"
+                android:visibility="visible"
+                android:weightSum="2"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/user_profile_name">
 
-               <LinearLayout
-                   android:layout_width="match_parent"
-                   android:layout_height="wrap_content"
-                   android:layout_gravity="center"
-                   android:layout_weight="0.2"
-                   android:weightSum="2">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="0.2"
+                    android:weightSum="2">
 
-                   <TextView
-                       android:id="@+id/follow_button"
-                       android:layout_width="match_parent"
-                       android:layout_height="wrap_content"
-                       android:textStyle="bold"
-                       android:text="Following"
-                       android:textAllCaps="true"
-                       android:gravity="center"
-                       android:layout_margin="5dp"
-                       android:padding="5dp"
-                       android:textColor="@color/white"
-                       android:background="@drawable/custom_button_bg"
-                       android:visibility="visible"
-                       android:layout_weight="1"/>
+                    <TextView
+                        android:id="@+id/follow_button"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/custom_button_bg"
+                        android:gravity="center"
+                        android:padding="5dp"
+                        android:text="Following"
+                        android:textAllCaps="true"
+                        android:textColor="@color/white"
+                        android:textStyle="bold"
+                        android:visibility="visible" />
 
-                   <TextView
-                       android:id="@+id/message_button"
-                       android:layout_width="match_parent"
-                       android:layout_height="wrap_content"
-                       android:textStyle="bold"
-                       android:text="Message"
-                       android:textAllCaps="true"
-                       android:gravity="center"
-                       android:layout_margin="5dp"
-                       android:padding="5dp"
-                       android:textColor="@color/white"
-                       android:background="@drawable/custom_button_bg"
-                       android:visibility="visible"
-                       android:layout_weight="1"/>
+                    <TextView
+                        android:id="@+id/message_button"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/custom_button_bg"
+                        android:gravity="center"
+                        android:padding="5dp"
+                        android:text="Message"
+                        android:textAllCaps="true"
+                        android:textColor="@color/white"
+                        android:textStyle="bold"
+                        android:visibility="visible" />
 
-               </LinearLayout>
+                </LinearLayout>
 
-               <ImageView
-                   android:layout_width="match_parent"
-                   android:layout_height="wrap_content"
-                   android:src="@drawable/profile_share"
-                   android:layout_margin="5dp"
-                   android:gravity="center"
-                   android:layout_weight="1.8"/>
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:layout_weight="1.8"
+                    android:gravity="center"
+                    android:src="@drawable/profile_share" />
 
-           </LinearLayout>
+            </LinearLayout>
 
             <LinearLayout
                 android:id="@+id/container_1"
@@ -208,9 +208,9 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
                 android:gravity="center_horizontal"
                 android:weightSum="2"
-                android:layout_marginTop="10dp"
                 app:layout_constraintTop_toBottomOf="@id/separator1">
 
                 <ImageView
@@ -219,8 +219,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
                     android:layout_marginEnd="16dp"
-                    android:src="@drawable/loved_post"
                     android:layout_weight="1"
+                    android:src="@drawable/loved_post"
                     app:layout_constraintEnd_toStartOf="@+id/icon_right"
                     app:layout_constraintStart_toStartOf="parent" />
 
@@ -230,10 +230,10 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
                     android:layout_marginTop="10dp"
-                    android:src="@drawable/ic_save"
                     android:layout_weight="1"
+                    android:src="@drawable/ic_save"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toEndOf="@+id/icon_left"/>
+                    app:layout_constraintStart_toEndOf="@+id/icon_left" />
 
             </LinearLayout>
 
@@ -241,11 +241,15 @@
 
     </androidx.cardview.widget.CardView>
 
-    <androidx.viewpager2.widget.ViewPager2
-        android:id="@+id/fragment_container"
+    <com.airbnb.epoxy.EpoxyRecyclerView
+        android:id="@+id/posts"
         android:layout_width="match_parent"
-        android:layout_height="470dp"
+        android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/container" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/container"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -28,6 +28,20 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name="com.razorpay.CheckoutActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:exported="true"
+            android:theme="@style/Theme.AppCompat"
+            android:screenOrientation="portrait"
+            tools:replace="android:configChanges,android:theme" /> <!-- Razorpay Token Receiver -->
+        <receiver
+            android:name="com.razorpay.RzpTokenReceiver"
+            android:exported="true" >
+            <intent-filter>
+                <action android:name="com.razorpay.token.receiver" />
+            </intent-filter>
+        </receiver>
     </application>
 
 </manifest>

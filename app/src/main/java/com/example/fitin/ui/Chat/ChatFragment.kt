@@ -14,11 +14,11 @@ import com.example.fitin.data.Data.img2
 import com.example.fitin.data.Data.img3
 import com.example.fitin.data.Data.img4
 import com.example.fitin.data.remote.ChatItem
-import com.example.fitin.databinding.FragmentChatBinding
+import com.example.fitin.databinding.FragmentChat1Binding
 
 class ChatFragment : Fragment() {
 
-    private var _binding:FragmentChatBinding? = null
+    private var _binding:FragmentChat1Binding? = null
     private val binding get() = _binding!!
 
     companion object {
@@ -37,7 +37,7 @@ class ChatFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
 
-        _binding = FragmentChatBinding.inflate(layoutInflater,container,false)
+        _binding = FragmentChat1Binding.inflate(layoutInflater,container,false)
 
         val controller = ChatItemEpoxyController(callback = {
             val navOptions = NavOptions.Builder()

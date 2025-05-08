@@ -44,22 +44,15 @@ dependencies {
     implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.8.7")
     implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.8.7")
     implementation("androidx.fragment:fragment-ktx:1.8.5")
-    implementation("androidx.navigation:navigation-fragment-ktx:2.8.4")
-    implementation("androidx.navigation:navigation-ui-ktx:2.8.4")
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.2.1")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.6.1")
-
-    implementation(project(":core:util"))
-    implementation(project(":plans:presentation"))
-    implementation(project(":feed:presentation"))
-    implementation(project(":rankings:presentation"))
-//    implementation(project(":chat"))
-
-
     // Library for Data Scrolling
     implementation ("com.airbnb.android:epoxy:4.6.3")
 
+    implementation(project(":core:util"))
 
+    //image loading library
+    implementation ("com.github.bumptech.glide:glide:4.16.0")
 
 }

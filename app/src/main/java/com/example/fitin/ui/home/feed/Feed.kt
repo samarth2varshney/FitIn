@@ -6,7 +6,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import com.airbnb.epoxy.EpoxyRecyclerView
+import com.example.fitin.R
 import com.example.fitin.databinding.FragmentFeedBinding
 import com.example.fitin.ui.home.feed.comments.CommentsBottomSheet
 
@@ -28,9 +30,14 @@ class Feed : Fragment() {
 
         binding.apply {
 
-            val controller = FeedItemEpoxyController(callback = {
+            val controller = FeedItemEpoxyController(commentsCallback = {
                 CommentsBottomSheet().show(childFragmentManager,"comments")
-            })
+                },
+                profileCallback = {
+                    findNavController().navigate(R.id.navigation_profile)
+                })
+
+
 
             epoxyRecyclerView.post {
                 epoxyRecyclerView.setController(controller)
@@ -41,6 +48,8 @@ class Feed : Fragment() {
             }
 
         }
+
+        binding
 
         return root
     }

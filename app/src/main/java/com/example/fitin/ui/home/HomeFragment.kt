@@ -15,11 +15,11 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.ViewPager2
 import com.example.fitin.R
-import com.example.fitin.databinding.FragmentHomeBinding
+import com.example.fitin.databinding.FragmentHome1Binding
 
 class HomeFragment : Fragment() {
 
-    private var _binding: FragmentHomeBinding? = null
+    private var _binding: FragmentHome1Binding? = null
     private val binding get() = _binding!!
     private lateinit var homePagerAdapter: HomePagerAdapter
     private var lastScrollTime: Long = 0
@@ -30,7 +30,7 @@ class HomeFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentHomeBinding.inflate(inflater, container, false)
+        _binding = FragmentHome1Binding.inflate(inflater, container, false)
         val root: View = binding.root
 
         setHasOptionsMenu(true)
